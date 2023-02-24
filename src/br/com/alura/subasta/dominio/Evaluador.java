@@ -30,6 +30,14 @@ public class Evaluador {
 	public double getMenorQueTodos() {
 		return menorQueTodos;
 	}
-	
-
 }
+
+
+
+
+
+
+
+
+
+
