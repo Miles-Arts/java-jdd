@@ -1,4 +1,4 @@
-package br.com.caelum.leilao.dominio;
+package br.com.alura.subasta.dominio;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Leilao {
 
-	private String descricao;
+	/*private String descricao;
 	private List<Lance> lances;
 	
 	public Leilao(String descricao) {
@@ -24,7 +24,7 @@ public class Leilao {
 
 	public List<Lance> getLances() {
 		return Collections.unmodifiableList(lances);
-	}
+	}*/
 
 	
 	

@@ -1,8 +1,7 @@
-package br.com.caelum.leilao.dominio;
-
+package br.com.alura.subasta.dominio;
 public class Lance {
 
-	private Usuario usuario;
+	/*private Usuario usuario;
 	private double valor;
 	
 	public Lance(Usuario usuario, double valor) {
@@ -16,7 +15,7 @@ public class Lance {
 
 	public double getValor() {
 		return valor;
-	}
+	}*/
 	
 	
 	

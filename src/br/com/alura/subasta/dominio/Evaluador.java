@@ -8,9 +8,12 @@ public class Evaluador {
 	
 	private double menorQueTodos = Double.POSITIVE_INFINITY;
 	
+	private double media = 0;
+	
 	public void evalua(Subasta subasta) {
 		
 	
+		double total = 0;
 		
 		for (Oferta oferta: subasta.getOfertas()) {
 			if  (oferta.getValor() > mayorQueTodos ) {
@@ -19,7 +22,11 @@ public class Evaluador {
 				if(oferta.getValor() < menorQueTodos) {
 					menorQueTodos = oferta.getValor();
 				}
-			//}
+			//}  
+				if(total == 0) {
+	            media = 0;
+	            return;
+	        }
 		}
 	}
 
@@ -29,6 +36,12 @@ public class Evaluador {
 
 	public double getMenorQueTodos() {
 		return menorQueTodos;
+		
+	}	
+	
+	public double getMedia() { 
+		return media; 	
+		
 	}
 }
 
