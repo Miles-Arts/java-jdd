@@ -15,11 +15,11 @@ public class Evaluador {
 		for (Oferta oferta: subasta.getOfertas()) {
 			if  (oferta.getValor() > mayorQueTodos ) {
 				mayorQueTodos = oferta.getValor();
-			}	
-			if(oferta.getValor() < menorQueTodos) {
-				menorQueTodos = oferta.getValor();
-			}
-			
+			}	//else { ESTE ELSE GENERAL ERROR DE PRODUCCIÓN
+				if(oferta.getValor() < menorQueTodos) {
+					menorQueTodos = oferta.getValor();
+				}
+			//}
 		}
 	}
 
