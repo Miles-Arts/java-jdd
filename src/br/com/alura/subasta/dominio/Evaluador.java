@@ -6,7 +6,7 @@ public class Evaluador {
 	
 	private double mayorQueTodos = Double.NEGATIVE_INFINITY;
 	
-	private double menorQueTodos = Double.NEGATIVE_INFINITY;
+	private double menorQueTodos = Double.POSITIVE_INFINITY;
 	
 	public void evalua(Subasta subasta) {
 		

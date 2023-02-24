@@ -1,13 +1,16 @@
 package br.com.alura.subasta.dominio;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
 
-public class TestEvaluador {
-	
-	
-	public static void main(String[] args) {
-		
-		
+import org.junit.Assert;
+import org.junit.Test;
+
+public class TestEvaluadorTest {
+
+	@Test
+	public void test() {
+
+
 		Usuario diego = new Usuario(1, "Diego");
 		Usuario alexis = new Usuario(2, "Alexis");
 		Usuario daniel = new Usuario(3, "Daniel");
@@ -32,14 +35,9 @@ public class TestEvaluador {
 		
 		//System.out.println(evaluador.getMenorQueTodos());
 		
-		Assert.assertEquals(700, evaluador.getMayorQueTodos());
+		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.0001);
+		
 		
 	}
+
 }
-
-
-
-
-
-
-
