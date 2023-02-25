@@ -16,19 +16,21 @@ public class Subasta {
 
 	public void propone(Oferta oferta) {
 
-		int total = 0;
-		for (Oferta l : ofertas) {
-			if (l.getUsuario().equals(oferta.getUsuario()))
-				total++;
-		}
+		int total = getTotalOfertasUsuario(oferta.getUsuario(), ofertas);
 
-		// Si la oferta esta vacia
+	
 		if (ofertas.isEmpty() ||
-		// Es un usuario diferente del anterior
-				!ofertas.get(ofertas.size() - 1).getUsuario().equals(oferta.getUsuario()) && total < 5) {
-			// Entonces agrega esa oferta
+				
+				esElMismoUsuarioAnterior(oferta.getUsuario()) && total < 5) {
+		
 			ofertas.add(oferta);
 		}
+
+	}
+
+	private boolean esElMismoUsuarioAnterior(Usuario usuario) {
+
+		return !ofertas.get(ofertas.size() - 1).getUsuario().equals(usuario);
 
 	}
 
