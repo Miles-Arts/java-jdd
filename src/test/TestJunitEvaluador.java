@@ -1,5 +1,6 @@
 package test;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.alura.subasta.dominio.Evaluador;
@@ -9,11 +10,11 @@ import br.com.alura.subasta.dominio.Usuario;
 import junit.framework.Assert;
 
 public class TestJunitEvaluador {
-
-	@Test
-	public void deberiaRetornarElMayorValor() {
-
-		// Primer escenario
+	
+	private Subasta subasta;
+	@Before
+	public void  prepararEscenario() {
+		
 		Usuario diego = new Usuario(1, "Diego");
 		Usuario alexis = new Usuario(2, "Alexis");
 		Usuario daniel = new Usuario(3, "Daniel");
@@ -26,7 +27,21 @@ public class TestJunitEvaluador {
 		subasta.propone(oferta1);
 		subasta.propone(oferta2);
 		subasta.propone(oferta3);
+		
+		//return subasta;
+		
+		this.subasta = subasta;
+	}
 
+	
+	// Primer escenario
+	@Test
+	public void deberiaRetornarElMayorValor() {
+
+		//Preparacion de mi ambiente
+		//Subasta subasta = new prepararEscenario();
+
+		//Ejecuación de Método
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
 
@@ -34,28 +49,24 @@ public class TestJunitEvaluador {
 
 		// System.out.println(evaluador.getMenorQueTodos());
 
+		//Verificación
 		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
 
 		Assert.assertEquals(300, evaluador.getMenorQueTodos(), 0.00001);
 	}
 	
-
+	// Test Case de equivalencia
 	@Test
 	public void deberiaRetornarElMayorValorConNumerosde5Cifras() {
-		// Primer escenario
-		Usuario diego = new Usuario(1, "Diego");
-		Usuario alexis = new Usuario(2, "Alexis");
-		Usuario daniel = new Usuario(3, "Daniel");
-
-		Oferta oferta1 = new Oferta(diego, 30044.00);
-		Oferta oferta2 = new Oferta(alexis, 50077.00);
-		Oferta oferta3 = new Oferta(daniel, 70088.00);
-
-		Subasta subasta = new Subasta("Auto del año");
-		subasta.propone(oferta1);
-		subasta.propone(oferta2);
-		subasta.propone(oferta3);
-
+		
+		//given
+		
+		
+		//Preparacion de mi ambiente
+		//Subasta subasta = new prepararEscenario();
+		//when
+		
+		//Ejecuación de Método	
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
 
@@ -63,6 +74,8 @@ public class TestJunitEvaluador {
 
 		// System.out.println(evaluador.getMenorQueTodos());
 
+		//then
+		//Verificación
 		Assert.assertEquals(70088, evaluador.getMayorQueTodos(), 0.00001);
 
 		Assert.assertEquals(30044, evaluador.getMenorQueTodos(), 0.00001);
@@ -72,6 +85,8 @@ public class TestJunitEvaluador {
 	
 	@Test
 	public void deberiaRetornarLasLas3MayoresOfertas( ) {
+		
+		//Preparacion de mi ambiente GIVEN
 		Usuario diego = new Usuario(1, "Diego");
 		Usuario alexis = new Usuario(2, "Alexis");
 		Usuario daniel = new Usuario(3, "Daniel");
@@ -85,6 +100,7 @@ public class TestJunitEvaluador {
 		Oferta oferta5 = new Oferta(eduardo, 9888.00);
 		
 		
+		//Ejecuación de Método WHEN
 		Subasta subasta = new Subasta("Auto del año");
 		subasta.propone(oferta1);
 		subasta.propone(oferta2);
@@ -92,9 +108,12 @@ public class TestJunitEvaluador {
 		subasta.propone(oferta4);
 		subasta.propone(oferta5);
 
+		
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
 		
+		
+		//Verificación THEN
 		Assert.assertEquals(evaluador.getMayoresOfertas().size(), 3);
 		
 		Assert.assertEquals(evaluador.getMayoresOfertas().get(0).getValor(), 70088.00);
