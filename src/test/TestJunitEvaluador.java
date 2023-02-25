@@ -1,7 +1,11 @@
-package br.com.alura.subasta.dominio;
+package test;
 
 import org.junit.Test;
 
+import br.com.alura.subasta.dominio.Evaluador;
+import br.com.alura.subasta.dominio.Oferta;
+import br.com.alura.subasta.dominio.Subasta;
+import br.com.alura.subasta.dominio.Usuario;
 import junit.framework.Assert;
 
 public class TestJunitEvaluador {
