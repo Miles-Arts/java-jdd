@@ -1,9 +1,10 @@
 package test;
 
-import org.junit.Assert;
+import junit.framework.Assert;
+
 import org.junit.Test;
 
-import junit.framework.Assert;
+
 
 import br.com.alura.subasta.dominio.Oferta;
 import br.com.alura.subasta.dominio.Subasta;
