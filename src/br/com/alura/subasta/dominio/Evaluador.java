@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Evaluador {
 
+	int baño = 2;
+	
 	private double mayorQueTodos = Double.NEGATIVE_INFINITY;
 	private double menorQueTodos = Double.POSITIVE_INFINITY;
 	private List<Oferta> mayoresOfertas = new ArrayList<Oferta>();
