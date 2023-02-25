@@ -18,11 +18,10 @@ public class Subasta {
 
 		int total = getTotalOfertasUsuario(oferta.getUsuario(), ofertas);
 
-	
 		if (ofertas.isEmpty() ||
-				
+
 				esElMismoUsuarioAnterior(oferta.getUsuario()) && total < 5) {
-		
+
 			ofertas.add(oferta);
 		}
 
