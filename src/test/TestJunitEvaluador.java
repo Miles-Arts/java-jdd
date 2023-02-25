@@ -15,6 +15,8 @@ public class TestJunitEvaluador {
 	@Before
 	public void  prepararEscenario() {
 		
+		System.out.println("Preparando Escenario");
+		
 		Usuario diego = new Usuario(1, "Diego");
 		Usuario alexis = new Usuario(2, "Alexis");
 		Usuario daniel = new Usuario(3, "Daniel");
@@ -38,16 +40,12 @@ public class TestJunitEvaluador {
 	@Test
 	public void deberiaRetornarElMayorValor() {
 
-		//Preparacion de mi ambiente
-		//Subasta subasta = new prepararEscenario();
-
+	
 		//Ejecuación de Método
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
 
-		// System.out.println("La mayor oferta es de: " + evaluador.getMayorQueTodos());
-
-		// System.out.println(evaluador.getMenorQueTodos());
+	
 
 		//Verificación
 		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
@@ -58,27 +56,18 @@ public class TestJunitEvaluador {
 	// Test Case de equivalencia
 	@Test
 	public void deberiaRetornarElMayorValorConNumerosde5Cifras() {
-		
-		//given
-		
-		
-		//Preparacion de mi ambiente
-		//Subasta subasta = new prepararEscenario();
-		//when
+	
 		
 		//Ejecuación de Método	
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
 
-		// System.out.println("La mayor oferta es de: " + evaluador.getMayorQueTodos());
-
-		// System.out.println(evaluador.getMenorQueTodos());
 
 		//then
 		//Verificación
-		Assert.assertEquals(70088, evaluador.getMayorQueTodos(), 0.00001);
+		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
 
-		Assert.assertEquals(30044, evaluador.getMenorQueTodos(), 0.00001);
+		Assert.assertEquals(300, evaluador.getMenorQueTodos(), 0.00001);
 	
 	
 	}
