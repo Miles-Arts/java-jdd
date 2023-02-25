@@ -1,33 +1,37 @@
 package br.com.alura.subasta.dominio;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Evaluador {
 
-	//private double mayorQueTodos = 0.0; //Variable Global
-	
 	private double mayorQueTodos = Double.NEGATIVE_INFINITY;
-	
 	private double menorQueTodos = Double.POSITIVE_INFINITY;
-	
-	//private double media = 0;
-	
+	private List<Oferta> mayoresOfertas = new ArrayList<Oferta>();
+
 	public void evalua(Subasta subasta) {
-		
-	
-		//double total = 0;
-		
-		for (Oferta oferta: subasta.getOfertas()) {
-			if  (oferta.getValor() > mayorQueTodos ) {
+		for (Oferta oferta : subasta.getOfertas()) {
+			if (oferta.getValor() > mayorQueTodos) {
 				mayorQueTodos = oferta.getValor();
-			}	//else { ESTE ELSE GENERAL ERROR DE PRODUCCIÓN
-				if(oferta.getValor() < menorQueTodos) {
-					menorQueTodos = oferta.getValor();
-				}
-			//}  
-				/*if(total == 0) {
-	            media = 0;
-	            return;
-	        }*/
+			}
+			if (oferta.getValor() < menorQueTodos) {
+				menorQueTodos = oferta.getValor();
+			}
+
 		}
+		mayoresOfertas = new ArrayList<Oferta>(subasta.getOfertas());
+		Collections.sort(mayoresOfertas, new Comparator<Oferta>() {
+			public int compare(Oferta oferta1, Oferta oferta2) {
+				if (oferta1.getValor() < oferta2.getValor())
+					return 1;
+				if (oferta1.getValor() > oferta2.getValor())
+					return -1;
+				return 0;
+			}
+		});
+		mayoresOfertas = mayoresOfertas.subList(0, 3);
 	}
 
 	public double getMayorQueTodos() {
@@ -36,21 +40,10 @@ public class Evaluador {
 
 	public double getMenorQueTodos() {
 		return menorQueTodos;
-		
-	}	
-	
-	/*public double getMedia() { 
-		return media; 	
-		
-	}*/
+	}
+
+	public List<Oferta> getMayoresOfertas() {
+		return mayoresOfertas;
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
