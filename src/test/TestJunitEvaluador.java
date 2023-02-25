@@ -3,6 +3,7 @@ package test;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.alura.subasta.dominio.CreadorDeSubasta;
 import br.com.alura.subasta.dominio.Evaluador;
 import br.com.alura.subasta.dominio.Oferta;
 import br.com.alura.subasta.dominio.Subasta;
@@ -17,7 +18,7 @@ public class TestJunitEvaluador {
 		
 		System.out.println("Preparando Escenario");
 		
-		Usuario diego = new Usuario(1, "Diego");
+		/*Usuario diego = new Usuario(1, "Diego");
 		Usuario alexis = new Usuario(2, "Alexis");
 		Usuario daniel = new Usuario(3, "Daniel");
 
@@ -28,14 +29,16 @@ public class TestJunitEvaluador {
 		Subasta subasta = new Subasta("Auto del año");
 		subasta.propone(oferta1);
 		subasta.propone(oferta2);
-		subasta.propone(oferta3);
+		subasta.propone(oferta3);*/
 		
-		//return subasta;
-		
-		this.subasta = subasta;
+		this.subasta = new CreadorDeSubasta().para("TV 55")
+				.oferta(new Usuario ("diego" ), 300)
+				.oferta(new Usuario ("alexis") , 500)
+				.oferta(new Usuario ("daniel") , 700)
+				.construir();;	
+		//this.subasta = subasta;	
 	}
 
-	
 	// Primer escenario
 	@Test
 	public void deberiaRetornarElMayorValor() {
@@ -44,8 +47,6 @@ public class TestJunitEvaluador {
 		//Ejecuación de Método
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
-
-	
 
 		//Verificación
 		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
@@ -96,12 +97,10 @@ public class TestJunitEvaluador {
 		subasta.propone(oferta3);
 		subasta.propone(oferta4);
 		subasta.propone(oferta5);
-
 		
 		Evaluador evaluador = new Evaluador();
 		evaluador.evalua(subasta);
-		
-		
+			
 		//Verificación THEN
 		Assert.assertEquals(evaluador.getMayoresOfertas().size(), 3);
 		
