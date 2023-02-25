@@ -15,13 +15,31 @@ public class Subasta {
 	}
 
 	public void propone(Oferta oferta) {
-		//Si la oferta esta vacia
-		if (ofertas.isEmpty() || 
-			//Es un usuario diferente del anterior
-				!ofertas.get(ofertas.size()-1).getUsuario().equals(oferta.getUsuario())) {
-			//Entonces agrega esa oferta
+
+		int total = 0;
+		for (Oferta l : ofertas) {
+			if (l.getUsuario().equals(oferta.getUsuario()))
+				total++;
+		}
+
+		// Si la oferta esta vacia
+		if (ofertas.isEmpty() ||
+		// Es un usuario diferente del anterior
+				!ofertas.get(ofertas.size() - 1).getUsuario().equals(oferta.getUsuario()) && total < 5) {
+			// Entonces agrega esa oferta
 			ofertas.add(oferta);
 		}
+
+	}
+
+	private int getTotalOfertasUsuario(Usuario usuario, List<Oferta> ofertas) {
+		int total = 0;
+		for (Oferta l : ofertas) {
+			if (l.getUsuario().equals(usuario))
+				total++;
+		}
+		return total;
+
 	}
 
 	public String getDescripcion() {
