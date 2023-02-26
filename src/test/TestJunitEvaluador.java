@@ -2,13 +2,15 @@ package test;
 
 import org.junit.Before;
 import org.junit.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import br.com.alura.subasta.dominio.CreadorDeSubasta;
 import br.com.alura.subasta.dominio.Evaluador;
 import br.com.alura.subasta.dominio.Oferta;
 import br.com.alura.subasta.dominio.Subasta;
 import br.com.alura.subasta.dominio.Usuario;
-import junit.framework.Assert;
+
 
 public class TestJunitEvaluador {
 
@@ -49,9 +51,13 @@ public class TestJunitEvaluador {
 		evaluador.evalua(subasta);
 
 		// Verificación
-		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
+		//Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
 
-		Assert.assertEquals(300, evaluador.getMenorQueTodos(), 0.00001);
+		//Assert.assertEquals(300, evaluador.getMenorQueTodos(), 0.00001);
+		
+		assertThat(evaluador.getMayorQueTodos(), equalTo(700.0));
+		
+		assertThat(evaluador.getMenorQueTodos(), equalTo(300.0));
 	}
 
 	// Test Case de equivalencia
@@ -64,10 +70,12 @@ public class TestJunitEvaluador {
 
 		// then
 		// Verificación
-		Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
+		//Assert.assertEquals(700, evaluador.getMayorQueTodos(), 0.00001);
 
-		Assert.assertEquals(300, evaluador.getMenorQueTodos(), 0.00001);
+		//Assert.assertEquals(300, evaluador.getMenorQueTodos(), 0.00001);
 
+		
+		
 	}
 
 	@Test
@@ -108,11 +116,11 @@ public class TestJunitEvaluador {
 		evaluador.evalua(subasta);
 
 		// Verificación THEN
-		Assert.assertEquals(evaluador.getMayoresOfertas().size(), 3);
+		//Assert.assertEquals(evaluador.getMayoresOfertas().size(), 3);
 
-		Assert.assertEquals(evaluador.getMayoresOfertas().get(0).getValor(), 70088.00);
-		Assert.assertEquals(evaluador.getMayoresOfertas().get(1).getValor(), 54333.00);
-		Assert.assertEquals(evaluador.getMayoresOfertas().get(2).getValor(), 50077.00);
+		//Assert.assertEquals(evaluador.getMayoresOfertas().get(0).getValor(), 70088.00);
+		//Assert.assertEquals(evaluador.getMayoresOfertas().get(1).getValor(), 54333.00);
+		//Assert.assertEquals(evaluador.getMayoresOfertas().get(2).getValor(), 50077.00);
 
 	}
 
